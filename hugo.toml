@@ -13,10 +13,10 @@ disqusShortname = ""
 [module]
   [[module.imports]]
     # Option 1 (recommended): adding the theme as a Hugo module
-    path = "github.com/Lednerb/bilberry-hugo-theme/v4"
+    #path = "github.com/Lednerb/bilberry-hugo-theme/v4"
 
     # Options 2 and 3: cloning/copying the theme files
-    # path = "bilberry-hugo-theme/v4"
+    path = "bilberry-hugo-theme/v4"
 
 [params]
   # Custom CSS/JS modules that will be imported by the template.
@@ -160,9 +160,6 @@ disqusShortname = ""
     copyrightUrl = "https://github.com/stevehnh"
     creditsText = "Bilberry Hugo Theme"
     creditsUrl = "https://github.com/Lednerb/bilberry-hugo-theme"
-
-  [assets]
-    disableFingerprinting = true
 
 # Enable/Disable Google Analytics statistics for your site
 [services]
