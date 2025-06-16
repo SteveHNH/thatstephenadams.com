@@ -161,6 +161,9 @@ disqusShortname = ""
     creditsText = "Bilberry Hugo Theme"
     creditsUrl = "https://github.com/Lednerb/bilberry-hugo-theme"
 
+  [assets]
+    disableFingerprinting = true
+
 # Enable/Disable Google Analytics statistics for your site
 [services]
   [services.googleAnalytics]
