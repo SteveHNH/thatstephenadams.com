@@ -6,6 +6,6 @@ categories: ["podcast"]
 tags: ["24fps", "fast and furious"]
 author: "Stephen"
 
-# Set your audio id/url for
-spotify: "5QyvBHyKRAeCvb5Zi3jAnk"     # https://open.spotify.com/track/3W2lz1sg6m4sEzjmoTjmdE?si=0659fd12179840dd --> 3W2lz1sg6m4sEzjmoTjmdE
 ---
+
+<iframe src="https://embed.acast.com/$/67f1bf0e506c6c628c80f97f/6834921769c98f151da75085?" frameBorder="0" width="100%" height="110px" allow="autoplay"></iframe>
