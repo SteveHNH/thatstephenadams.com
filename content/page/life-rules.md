@@ -2,7 +2,7 @@
 title: "Life Rules"
 date: 2025-06-15T13:18:45+01:00
 menu: topnav
-weight: 10
+weight: 30
 readingTime: 0
 showDate: false
 ---
