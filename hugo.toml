@@ -40,7 +40,7 @@ disqusShortname = ""
   enable_mathjax    = false
 
   # Enable / Disable algolia search
-  algolia_search    = true
+  algolia_search    = false 
   algolia_appId     = "45CEN6X6AT"
 ***REMOVED***
   algolia_indexName = "bilberry-hugo-theme"
