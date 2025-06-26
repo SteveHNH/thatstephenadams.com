@@ -41,11 +41,11 @@ disqusShortname = ""
 
   # Enable / Disable algolia search
   algolia_search    = false 
-  algolia_appId     = "45CEN6X6AT"
-***REMOVED***
-  algolia_indexName = "bilberry-hugo-theme"
-  # Set this option to false if you want to search within all articles in all languages at once
-  algolia_currentLanguageOnly = true
+#  algolia_appId     = "45CEN6X6AT"
+#***REMOVED***
+#  algolia_indexName = "bilberry-hugo-theme"
+#  # Set this option to false if you want to search within all articles in all languages at once
+#  algolia_currentLanguageOnly = true
 
   # Enable / Disable comments on the articles via commento
   # commentoJsURL = "https://commento.lednerb.de/js/commento.js"
