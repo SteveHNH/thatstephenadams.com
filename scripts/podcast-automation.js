@@ -74,7 +74,7 @@ author: "Stephen"
 
 ---
 
-<iframe src="https://embed.acast.com/$/\${config.showId}/\${episode.guid}?" frameBorder="0" width="100%" height="110px" allow="autoplay"></iframe>
+<iframe src="https://embed.acast.com/$/${config.showId}/${episode.guid}?" frameBorder="0" width="100%" height="110px" allow="autoplay"></iframe>
 `;
 
   return { filename: `${filename}.md`, content: frontmatter };
