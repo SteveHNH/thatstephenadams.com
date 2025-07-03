@@ -1,0 +1,15 @@
+{
+  "name": "podcast-automation",
+  "version": "1.0.0",
+  "description": "Automated podcast post generation for Hugo site",
+  "main": "podcast-automation.js",
+  "scripts": {
+    "twtd": "node podcast-automation.js thosewerethedays",
+    "24fps": "node podcast-automation.js 24-fps-presents"
+  },
+  "dependencies": {
+    "xml2js": "^0.6.2"
+  },
+  "author": "Stephen Adams",
+  "license": "MIT"
+}

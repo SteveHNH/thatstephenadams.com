@@ -1,0 +1,83 @@
+name: Automated Podcast Posts
+
+on:
+  schedule:
+    # Run every 6 hours to check for new episodes
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Allow manual trigger
+  
+jobs:
+  check-new-episodes:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: scripts/package.json
+    
+    - name: Install dependencies
+      run: |
+        cd scripts
+        npm install
+    
+    - name: Check for new TWTD episodes
+      run: |
+        cd scripts
+        node podcast-automation.js thosewerethedays
+        
+    - name: Check for new 24FPS episodes
+      run: |
+        cd scripts
+        node podcast-automation.js 24-fps-presents
+    
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push new posts
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add content/audio/
+        git commit -m "🎙️ Add new podcast episodes
+
+        🤖 Generated with [Claude Code](https://claude.ai/code)
+        
+        Co-Authored-By: Claude <noreply@anthropic.com>"
+        
+        # Push to main branch
+        git push origin main
+        
+        # Also push to published branch to trigger deployment
+        git push origin HEAD:published
+    
+    - name: Create summary
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        echo "## 🎙️ New Podcast Episodes Added!" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "The following new podcast posts were created:" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        git log --oneline -1 >> $GITHUB_STEP_SUMMARY
+        
+    - name: No new episodes summary
+      if: steps.verify-changed-files.outputs.changed == 'false'
+      run: |
+        echo "## 📻 No New Episodes" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "No new podcast episodes found during this check." >> $GITHUB_STEP_SUMMARY
