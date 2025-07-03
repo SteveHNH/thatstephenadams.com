@@ -1,6 +1,6 @@
 ---
 title: "TWTD - Retro Commercial Extravaganza"
-date: 2025-07-03T12:30:00-04:00
+date: 2025-07-03T11:45:00-04:00
 
 categories: ["podcast"]
 tags: ["Those Were the Days"]
