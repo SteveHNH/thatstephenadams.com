@@ -1,0 +1,78 @@
+name: Automated Movie Reviews
+
+on:
+  schedule:
+    # Run every day at 3am to check for new reviews
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Allow manual trigger
+  
+jobs:
+  check-new-reviews:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: scripts/package.json
+    
+    - name: Install dependencies
+      run: |
+        cd scripts
+        npm install
+    
+    - name: Check for new movie reviews
+      run: |
+        cd scripts
+        node movie-automation.js
+        
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push new posts
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add content/article/
+        git commit -m "🎬 Add new movie review
+
+        🤖 Generated with [Claude Code](https://claude.ai/code)
+        
+        Co-Authored-By: Claude <noreply@anthropic.com>"
+        
+        # Push to main branch
+        git push origin main
+        
+        # Also push to published branch to trigger deployment
+        git push origin HEAD:published
+    
+    - name: Create summary
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        echo "## 🎬 New Movie Review Added!" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "The following new movie review was created:" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        git log --oneline -1 >> $GITHUB_STEP_SUMMARY
+        
+    - name: No new reviews summary
+      if: steps.verify-changed-files.outputs.changed == 'false'
+      run: |
+        echo "## 🎬 No New Reviews" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "No new movie reviews found during this check." >> $GITHUB_STEP_SUMMARY
