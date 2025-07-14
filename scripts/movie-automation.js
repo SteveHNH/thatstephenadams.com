@@ -167,7 +167,7 @@ async function main() {
     console.log(`Watched: ${review.watchedDate}`);
     
     const post = generatePost(review);
-    const outputPath = path.join(__dirname, '..', 'content', 'article', post.filename);
+    const outputPath = path.join(__dirname, '..', 'content', 'en', 'post', post.filename);
     
     // Check if file already exists
     if (fs.existsSync(outputPath)) {

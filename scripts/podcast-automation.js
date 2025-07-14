@@ -100,7 +100,7 @@ async function main() {
     console.log(`GUID: ${episode.guid}`);
     
     const post = generatePost(podcastKey, episode);
-    const outputPath = path.join(__dirname, '..', 'content', 'audio', post.filename);
+    const outputPath = path.join(__dirname, '..', 'content', 'en', 'post', post.filename);
     
     // Check if file already exists
     if (fs.existsSync(outputPath)) {
