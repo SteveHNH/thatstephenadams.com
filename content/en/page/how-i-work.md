@@ -1,7 +1,7 @@
 ---
 title: "How I Work"
 date: 2025-06-15T13:18:45+01:00
-draft: true
+draft: false
 menu: topnav
 weight: 20
 readingTime: 0
