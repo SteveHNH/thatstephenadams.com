@@ -166,6 +166,16 @@ async function main() {
     console.log(`Published: ${review.pubDate}`);
     console.log(`Watched: ${review.watchedDate}`);
     
+    // Skip posts that only have star ratings without meaningful review text
+    const meaningfulText = review.reviewText ? review.reviewText.trim() : '';
+    const isOnlyWatchDate = meaningfulText.match(/^Watched on .+\.?$/);
+    
+    if (!meaningfulText || meaningfulText.length === 0 || isOnlyWatchDate) {
+      console.log('Skipping post - no meaningful review text, only star rating and/or watch date');
+      console.log(`Review text was: "${meaningfulText}"`);
+      process.exit(0);
+    }
+    
     const post = generatePost(review);
     const outputPath = path.join(__dirname, '..', 'content', 'en', 'post', post.filename);
     

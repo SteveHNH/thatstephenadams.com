@@ -1,6 +1,7 @@
 ---
 title: "Holes (2003)"
 date: 2025-07-18T20:37:25.000Z
+draft: true
 
 categories: ["movie"]
 tags: ["Movies", "Review"]
