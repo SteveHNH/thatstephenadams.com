@@ -2,3 +2,4 @@ public/
 resources/
 scripts/node_modules/
 scripts/package-lock.json
+.obsidian
