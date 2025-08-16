@@ -48,7 +48,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add content/en/post/
+        git add content/post/
         git commit -m "🎬 Add new movie review
 
         🤖 Generated with [Claude Code](https://claude.ai/code)
