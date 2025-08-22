@@ -9,7 +9,7 @@ toc: false
 author: "Stephen"
 ---
 
-![Gate of the Feral Gods Cover](book-cover.jpg)
+![Gate of the Feral Gods Cover](/post/gate-of-the-feral-gods/book-cover.jpg)
 
 ## The Back Cover
 

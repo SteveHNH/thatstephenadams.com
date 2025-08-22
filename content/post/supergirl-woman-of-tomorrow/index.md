@@ -9,7 +9,7 @@ toc: false
 author: "Stephen"
 ---
 
-![Book Cover](book-cover.jpg)
+![Book Cover](/post/supergirl-woman-of-tomorrow/book-cover.jpg)
 
 ## Summary
 

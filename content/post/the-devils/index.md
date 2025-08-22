@@ -9,7 +9,7 @@ toc: false
 author: "Stephen"
 ---
 
-![The Devils Cover](book-cover.jpg)
+![The Devils Cover](/post/the-devils/book-cover.jpg)
 
 ## The Back Cover
 
