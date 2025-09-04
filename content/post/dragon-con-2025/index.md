@@ -1,5 +1,5 @@
 ---
-title: "Dragoncon2026"
+title: "Dragon Con 2025"
 date: 2025-09-03T21:29:12-04:00
 draft: false 
 
