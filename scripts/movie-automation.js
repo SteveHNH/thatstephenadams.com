@@ -16,14 +16,24 @@ const LETTERBOXD_CONFIG = {
 // Fetch RSS feed
 function fetchRSS(url) {
   return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'Accept': 'application/rss+xml, application/xml, text/xml, application/atom+xml, */*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+      }
+    };
+
+    https.get(url, options, (res) => {
       // Handle redirects
       if (res.statusCode === 301 || res.statusCode === 302) {
         console.log(`Redirecting to: ${res.headers.location}`);
         fetchRSS(res.headers.location).then(resolve).catch(reject);
         return;
       }
-      
+
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => resolve(data));
@@ -158,7 +168,14 @@ async function main() {
     // Debug: Show first few characters of the response
     console.log('First 200 chars of RSS data:', rssData.substring(0, 200));
     console.log('Response length:', rssData.length);
-    
+
+    // Detect bot-protection or error pages returned as HTML instead of RSS
+    const trimmed = rssData.trim();
+    if (trimmed.startsWith('<!DOCTYPE') || (trimmed.startsWith('<html') && !trimmed.includes('<rss'))) {
+      console.log('Received HTML response instead of RSS feed (bot protection or service outage). Skipping this run.');
+      process.exit(0);
+    }
+
     const review = await parseRSS(rssData);
     
     console.log(`Latest review: ${review.filmTitle} (${review.filmYear})`);
