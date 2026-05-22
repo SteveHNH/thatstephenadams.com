@@ -20,7 +20,7 @@ const PODCASTS = {
     category: 'podcast',
     tags: ['24fps'],
     titlePrefix: ''
-  }
+  },
 };
 
 // Fetch RSS feed
@@ -56,7 +56,7 @@ function parseRSS(xmlData) {
 function generatePost(podcastKey, episode) {
   const config = PODCASTS[podcastKey];
   const date = new Date(episode.pubDate).toISOString();
-  const title = `${config.titlePrefix}${episode.title}`;
+  const title = `${config.titlePrefix}${episode.title}`.replace(/"/g, '');
   
   // Create filename (sanitize title)
   const filename = title.toLowerCase()

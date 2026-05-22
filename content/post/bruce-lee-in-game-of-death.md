@@ -1,5 +1,5 @@
 ---
-title: "Bruce Lee in "Game of Death""
+title: "Bruce Lee in Game of Death"
 date: 2026-05-13T04:00:00.000Z
 
 categories: ["podcast"]
