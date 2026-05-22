@@ -1,5 +1,5 @@
 ---
-title: "Stephen Chow in "Kung Fu Hustle""
+title: "Stephen Chow in Kung Fu Hustle"
 date: 2026-05-20T04:00:00.000Z
 
 categories: ["podcast"]
