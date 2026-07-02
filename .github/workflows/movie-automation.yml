@@ -1,10 +1,7 @@
 name: Automated Movie Reviews
 
 on:
-  schedule:
-    # Run every day at 3am to check for new reviews
-    - cron: '0 3 * * *'
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch: # Manual trigger only — automated schedule disabled (Letterboxd blocks automated RSS fetches)
   
 jobs:
   check-new-reviews:
