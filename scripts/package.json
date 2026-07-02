@@ -5,7 +5,8 @@
   "main": "podcast-automation.js",
   "scripts": {
     "twtd": "node podcast-automation.js thosewerethedays",
-    "24fps": "node podcast-automation.js 24-fps-presents"
+    "24fps": "node podcast-automation.js 24-fps-presents",
+    "review": "node create-review.js"
   },
   "dependencies": {
     "xml2js": "^0.6.2"
