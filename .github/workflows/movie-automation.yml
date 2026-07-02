@@ -29,6 +29,14 @@ jobs:
         cd scripts
         npm install
     
+    - name: Test curl fetch (diagnostic)
+      run: |
+        echo "Testing curl fetch from runner..."
+        curl -s --max-time 15 \
+          -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" \
+          -H "Accept: application/rss+xml, application/xml, text/xml, */*" \
+          "https://www.letterboxd.com/stevehnh/rss/" | head -c 300
+
     - name: Check for new movie reviews
       run: |
         cd scripts
