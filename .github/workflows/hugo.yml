@@ -38,15 +38,14 @@ jobs:
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          # Pinned: the Mana theme uses APIs deprecated in Hugo 0.156-0.158
+          # (.Site.Languages, .Language.LanguageCode/Direction). Bump deliberately
+          # after checking the build still passes on the newer version.
+          hugo-version: '0.165.0'
           extended: true
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v6
-      - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache

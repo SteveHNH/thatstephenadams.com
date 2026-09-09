@@ -1,116 +1,114 @@
-baseurl = "https://www.thatstephenadams.com"
-DefaultContentLanguage = "en"
+baseURL = "https://www.thatstephenadams.com/"
+defaultContentLanguage = "en"
 title = "Stephen Adams"
-theme = "github.com/halogenica/beautifulhugo"
-pygmentsStyle = "trac"
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
-#pygmentsUseClassic = true
-#pygmentOptions = "linenos=inline"
+theme = "mana"
 
-[Services]
-  [Services.Disqus]
-    Shortname = "thatstephenadams"
-  [Services.googleAnalytics]
-    # id = "XXX"
+[pagination]
+  pageSize = 10
 
-[Params]
-#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
-  subtitle = "It's about the journey"
-#  mainSections = ["post","posts"]
-  logo = "img/avatar.png" # Expecting square dimensions
-#  favicon = "img/favicon.ico"
-  dateFormat = "January 2, 2006"
-  commit = false
-  rss = true
-  comments = true
-  readingTime = true
-  wordCount = true
-  useHLJS = true
-  socialShare = true
-  delayDisqus = true
-  showRelatedPosts = true
-#  cusdisID = "XXX" # Get your App id from cusdis.com
-#  hideAuthor = true
-#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
-#  disclaimerText = "The opinions expressed herein are my own personal opinions and do not represent my employer’s view in any way."
-
-#[[Params.bigimg]]
-#  src = "img/triangle.jpg"
-#  desc = "Triangle"
-#[[Params.bigimg]]
-#  src = "img/sphere.jpg"
-#  desc = "Sphere"
-#  # position: see values of CSS background-position.
-#  position = "center top"
-#[[Params.bigimg]]
-#  src = "img/hexagon.jpg"
-#  desc = "Hexagon"
-
-[Params.author]
-  # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
-  name = "Stephen Adams"
-  website = "thatstephenadams.com"
-  logo = "img/avatar-icon.png"
-  github = "username"
-  youtube = "@2dorkstv" # or channel/channelname
-  bluesky = "thatstephenadams.com"
-
-# Menu configuration
-[[menu.main]]
-    name = "Blog"
-    url = "/"
-    weight = 1
-
-[[menu.main]]
-    name = "Podcasts"
-    url = "/page/podcasts/"
-    weight = 10
-
-[[menu.main]]
-    name = "How I Work"
-    url = "/page/how-i-work/"
-    weight = 20
-
-[[menu.main]]
-    name = "Life Rules"
-    url = "/page/life-rules/"
-    weight = 30
-
-[[menu.main]]
-    name = "Old Blog"
-    url = "https://www.2dsteve.com"
-    weight = 100
+[outputs]
+  # RSS keeps the existing /index.xml feed; JSON builds /index.json, the
+  # full-text search index the theme reads.
+  home = ["HTML", "RSS", "JSON"]
 
 [markup]
-  defaultMarkdownHandler = 'goldmark'
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      # change to 'true' if you need to render raw HTML within your markdown content
-      unsafe = true 
-  [markup.highlight]
-    anchorLineNos = false
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ''
-    hl_inline = false
-    lineAnchors = ''
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    noHl = false
-    style = 'monokai'
-    tabWidth = 4
+  [markup.goldmark.renderer]
+    # posts and podcast episodes embed raw <iframe> / <img> HTML
+    unsafe = true
+  [markup.goldmark.parser.attribute]
+    # required for the theme's blockquote / admonition render hook
+    block = true
+    title = true
   [markup.tableOfContents]
+    startLevel = 2
     endLevel = 5
     ordered = false
-    startLevel = 2
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    # false: use the CSS classes the theme ships (syntax-dark.css / syntax-light.css)
+    noClasses = false
+    style = "catppuccin-macchiato"
 
-# [languages]
-#   [languages.en]
-#     weight = 1
-#     contentDir = "content/en"
+[params]
+  description = "It's about the journey"
+  author = "Stephen Adams"
+  heroTitleLine1 = "Stephen Adams"
+  heroTitleLine2 = "It's about the journey"
+  # Line shown under the hero title on the home page (see layouts/_default/home.html).
+  # Kept separate from `description` so the site-wide meta description is unaffected.
+  heroSubtitle = "podcaster. streamer. nerd."
+  relatedPostsCount = 3
+  enableIntegrity = false
 
+  # Point every favicon slot at the existing static/img/avatar.png. Replace with a
+  # generated favicon set (static/favicon/*) when there's time; the theme's
+  # partials/head/favicon.html reads these keys.
+  [params.favicons]
+    ico = "/img/avatar.png"
+    png = "/img/avatar.png"
+    png16 = "/img/avatar.png"
+    png32 = "/img/avatar.png"
+    apple180 = "/img/avatar.png"
+    android192 = "/img/avatar.png"
+    android512 = "/img/avatar.png"
 
+  [params.avatar.home]
+    url = "/img/avatar.png"
+  [params.avatar.about]
+    url = "/img/avatar.png"
+
+  [params.social]
+    github = "https://github.com/stevehnh"
+    # bluesky and youtube are rendered by layouts/partials/social-links.html (repo override)
+    bluesky = "https://bsky.app/profile/thatstephenadams.com"
+    youtube = "https://www.youtube.com/@2dorkstv"
+
+  [params.codeHighlight]
+    darkTheme = "catppuccin-macchiato"
+    lightTheme = "catppuccin-frappe"
+
+  [params.copyright]
+    startYear = 2021
+    owner = "Stephen Adams"
+
+  [params.admonitions]
+    alertStyle = "favicon"
+
+  [params.buyMeACoffee]
+    enabled = false
+
+[[menus.main]]
+  name = "Blog"
+  pageRef = "/"
+  weight = 10
+
+[[menus.main]]
+  name = "Posts"
+  pageRef = "/post"
+  weight = 20
+
+[[menus.main]]
+  name = "Podcasts"
+  pageRef = "/page/podcasts"
+  weight = 30
+
+[[menus.main]]
+  name = "How I Work"
+  pageRef = "/page/how-i-work"
+  weight = 40
+
+[[menus.main]]
+  name = "Life Rules"
+  pageRef = "/page/life-rules"
+  weight = 50
+
+[[menus.main]]
+  name = "Archive"
+  pageRef = "/archive"
+  weight = 60
+
+[[menus.main]]
+  name = "Old Blog"
+  url = "https://www.2dsteve.com"
+  weight = 100
