@@ -1,0 +1,23 @@
+{{- /*
+  cover: render a page-bundle image at a sensible size.
+
+  Resizes the bundle resource down to a max width (default 260px) so the page
+  ships a small, sRGB image instead of the multi-megabyte original, and sizes
+  the <img> so cover art doesn't dominate the column. Resizing also re-encodes
+  CMYK JPEGs to RGB.
+
+  Usage: {{< cover src="twtd.jpg" alt="Those Were The Days cover art" >}}
+         {{< cover src="art.jpg" alt="..." width="320" >}}
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $width := int (.Get "width" | default 260) -}}
+{{- $res := .Page.Resources.GetMatch $src -}}
+{{- if $res -}}
+  {{- if gt $res.Width $width -}}
+    {{- $res = $res.Resize (printf "%dx q85 Lanczos" $width) -}}
+  {{- end -}}
+  <img class="cover-art" src="{{ $res.RelPermalink }}" alt="{{ $alt }}" width="{{ $res.Width }}" style="height:auto;border-radius:8px" loading="lazy">
+{{- else -}}
+  <img class="cover-art" src="{{ $src | relURL }}" alt="{{ $alt }}" width="{{ $width }}" style="height:auto;border-radius:8px" loading="lazy">
+{{- end -}}

@@ -1,0 +1,32 @@
+{{/*
+  Static-page layout for the `page` section (How I Work, Life Rules, Podcasts, ...).
+  Mirrors themes/mana/layouts/_default/single.html but drops the post-only chrome:
+  post image, date / word-count / reading-time meta, tag footer, related posts and
+  prev/next navigation, none of which make sense on an evergreen page.
+*/}}
+{{ define "main" }}
+  <div class="single-post-wrapper">
+    <article class="single-post">
+      <header class="post-header">
+        {{ partial "breadcrumb.html" . }}
+        <h1 class="post-title-main">{{ .Title }}</h1>
+
+        {{ if .Description }}
+          <p class="post-description-main">{{ .Description }}</p>
+        {{ end }}
+      </header>
+
+      <div class="post-content-main">
+        {{ .Content }}
+      </div>
+    </article>
+
+    {{/* Only show the TOC when it actually has entries. Hugo emits an empty
+         <nav id="TableOfContents"></nav> when a page's headings all fall outside
+         markup.tableOfContents startLevel/endLevel (e.g. the podcasts page uses
+         only h1), which the theme's toc.html would otherwise render as an empty box. */}}
+    {{ if strings.Contains (printf "%s" .TableOfContents) "<a" }}
+      {{ partial "toc.html" . }}
+    {{ end }}
+  </div>
+{{ end }}

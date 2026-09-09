@@ -4,21 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Hugo-based static website using the Bilberry Hugo Theme. The site is Stephen Adams' personal blog/website hosted at https://www.thatstephenadams.com/
+This is a Hugo-based static website using the [Mana Hugo theme](https://github.com/Livour/hugo-mana-theme). The site is Stephen Adams' personal blog/website hosted at https://www.thatstephenadams.com/
 
 ## Architecture
 
-- **Hugo Static Site Generator**: Uses Hugo v0.147.8 with extended features
-- **Theme**: Bilberry Hugo Theme v4 (located in `themes/bilberry-hugo-theme/v4/`)
+- **Hugo Static Site Generator**: Requires Hugo extended v0.100.0+ (CI installs `latest`; developed against v0.165). No Node/PostCSS build step — the theme's CSS/JS is bundled by Hugo Pipes.
+- **Theme**: Mana, vendored as a git submodule at `themes/mana` (`theme = "mana"` in `hugo.toml`). Hugo Modules are **not** used anymore — `go.mod`/`go.sum` were removed when the site moved off the previous `beautifulhugo` module.
 - **Configuration**: `hugo.toml` contains all site configuration
-- **Content**: Markdown files in `content/` directory with various content types:
-  - `article/` - Blog posts
-  - `audio/` - Audio content/podcasts
-  - `code/` - Code-related posts
-  - `gallery/` - Image galleries
-  - `page/` - Static pages
-  - `quote/` - Quote posts
-  - `video/` - Video content
+- **Content**: Markdown files in `content/`:
+  - `post/` - Blog posts, movie reviews, and (auto-generated) podcast episodes live under URLs `/post/<slug>/`
+  - `audio/` - Podcast episodes (Acast embeds) at `/audio/<slug>/`
+  - `page/` - Static pages (How I Work, Life Rules, Podcasts) at `/page/<slug>/`
+  - `archive/` - `_index.md` with `type: archive`; renders the theme's year/month archive
+- **How the theme finds posts**: Mana lists content where `.Type == "posts"`. `content/post/_index.md` and `content/audio/_index.md` each carry a `cascade` (`_target: {kind: page}` → `type: posts`) so every episode/post — including future automation output — is picked up by the home feed, `/post/` list, archive and JSON search, while section names (and therefore URLs) stay `post` / `audio`.
+- **Theme overrides** in the repo `layouts/`:
+  - `layouts/post/list.html` - paginates the combined `type: posts` set so podcast episodes appear in the main `/post/` index, not just on the home page
+  - `layouts/page/single.html` - clean layout for `page/` content (no post meta / related / prev-next)
+  - `layouts/partials/social-links.html` - theme's partial plus Bluesky + YouTube icons
+- **Comments**: none. The previous Disqus integration was dropped in the Mana migration (Mana has no built-in comment system).
 - **Deployment**: GitHub Actions workflow deploys to GitHub Pages on pushes to `published` branch
 
 ## Common Commands
@@ -30,33 +33,34 @@ hugo server
 
 # Build site for production
 hugo --minify
-
-# Get/update Hugo modules
-hugo mod get
 ```
 
 ### Theme Development
-The theme is included as a local copy in `themes/bilberry-hugo-theme/`. The v4 version is being used.
+The theme is a git submodule at `themes/mana`. After a fresh clone run `git submodule update --init --recursive`. To update the theme: `git -C themes/mana pull origin main` (then re-check the repo overrides in `layouts/` still match the theme's partials).
 
 ### Content Management
 - Content is organized by type in the `content/` directory
 - Each content type has specific frontmatter requirements
-- Multi-language support is configured (English is default)
+- English only (`defaultContentLanguage = "en"`)
+
+### Helper scripts (`scripts/`)
+- `podcast-automation.js` — pulls the latest episode from a show's Acast RSS and writes `content/post/<slug>.md`. Runs daily via `.github/workflows/podcast-automation.yml`.
+- `create-review.js` (`npm run review`) — interactive CLI to author a movie-review post from TMDB search results (poster, title, year); the Letterboxd link it adds is a plain URL, not an API call.
+- The old `movie-automation.js` / `movie-automation.yml` (auto-posting from Letterboxd RSS) were removed — Letterboxd blocks automated fetches.
 
 ## Key Configuration
 
 - **Base URL**: https://www.thatstephenadams.com/
-- **Theme Path**: `bilberry-hugo-theme/v4`
-- **Algolia Search**: Disabled (line 43 in hugo.toml)
-- **Comments**: Disabled (Disqus, Giscus, Utterances all disabled)
-- **Analytics**: Google Analytics ID is empty
+- **Theme**: `mana` (submodule at `themes/mana`)
+- **Search**: Mana's built-in JSON full-text search (`[outputs] home = ["HTML", "RSS", "JSON"]` builds `/index.json`)
+- **Comments**: none
+- **Analytics**: none (Mana supports Umami via `[params.umami]` if wanted)
+- **Code highlighting**: Chroma with `noClasses = false`; theme-aware Catppuccin (`[params.codeHighlight]`)
 
 ## Deployment
 
-- Site deploys automatically via GitHub Actions when pushing to `published` branch
-- Uses Hugo v0.147.8 with Dart Sass
-- Builds to `public/` directory
-- Deployed to GitHub Pages
+- Site deploys automatically via GitHub Actions (`.github/workflows/hugo.yml`) when pushing to `published` branch
+- Checks out submodules recursively, installs Hugo extended (pinned in the workflow), builds to `public/`, deploys to GitHub Pages
 
 ### Podcast Automation & PAT Setup
 
@@ -83,7 +87,7 @@ The podcast automation workflow requires a Personal Access Token (PAT) to trigge
 
 ## Development Notes
 
-- The theme includes Node.js dependencies that may need to be installed
-- Hugo modules are used for dependency management
-- Site supports multiple languages but currently only English is configured
-- Custom layouts can be added in the root `layouts/` directory to override theme defaults
+- No Node/build toolchain is required to build the site — Hugo (extended) is the only dependency. `scripts/` has its own `package.json` (podcast/review helpers) that is unrelated to the site build.
+- No Hugo Modules — the theme is the `themes/mana` git submodule; there is no `go.mod`.
+- Only English is configured (`defaultContentLanguage = "en"`, no `[languages]` block).
+- Custom layouts in the root `layouts/` directory override theme defaults (see the "Theme overrides" list above).

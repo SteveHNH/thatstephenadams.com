@@ -1,0 +1,11 @@
+{
+  "name": "Stephen Adams",
+  "short_name": "Stephen Adams",
+  "icons": [
+    { "src": "/img/avatar.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/avatar.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
