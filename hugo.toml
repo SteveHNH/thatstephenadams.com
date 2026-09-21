@@ -41,6 +41,11 @@ theme = "mana"
   relatedPostsCount = 3
   enableIntegrity = false
 
+  # Comments are disabled until a Disqus forum shortname is supplied. See
+  # docs/disqus.md for the one-time forum setup and moderation guidance.
+  [params.comments.disqus]
+    shortname = "2dsteve"
+
   # Point every favicon slot at the existing static/img/avatar.png. Replace with a
   # generated favicon set (static/favicon/*) when there's time; the theme's
   # partials/head/favicon.html reads these keys.
