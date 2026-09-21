@@ -1,0 +1,35 @@
+{{ if and (eq .Section "post") .Site.Params.comments.disqus.shortname }}
+  {{ $shortname := .Site.Params.comments.disqus.shortname }}
+  {{ $pageURL := $.Permalink }}
+  {{ $pageIdentifier := printf "post:%s" $.RelPermalink }}
+  {{ $pageTitle := $.Title }}
+  <section class="post-comments" aria-labelledby="comments-heading">
+    <div class="post-comments-header">
+      <p class="post-comments-eyebrow">Community</p>
+      <h2 id="comments-heading">Join the conversation</h2>
+      <p>Thoughts, questions, or a different take? Leave a comment below.</p>
+    </div>
+
+    <div id="disqus_thread"></div>
+    <noscript>
+      <p class="post-comments-noscript">
+        Please enable JavaScript to view the comments, or
+        <a href="https://disqus.com/?ref_noscript" rel="nofollow">visit Disqus</a>.
+      </p>
+    </noscript>
+
+    <script>
+      var disqus_config = function () {
+        this.page.url = {{ $pageURL | jsonify | safeJS }};
+        this.page.identifier = {{ $pageIdentifier | jsonify | safeJS }};
+        this.page.title = {{ $pageTitle | jsonify | safeJS }};
+      };
+      (function () {
+        var d = document, s = d.createElement("script");
+        s.src = "https://{{ $shortname }}.disqus.com/embed.js";
+        s.setAttribute("data-timestamp", String(+new Date()));
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  </section>
+{{ end }}

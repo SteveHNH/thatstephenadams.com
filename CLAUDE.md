@@ -21,7 +21,7 @@ This is a Hugo-based static website using the [Mana Hugo theme](https://github.c
   - `layouts/post/list.html` - paginates the combined `type: posts` set so podcast episodes appear in the main `/post/` index, not just on the home page
   - `layouts/page/single.html` - clean layout for `page/` content (no post meta / related / prev-next)
   - `layouts/partials/social-links.html` - theme's partial plus Bluesky + YouTube icons
-- **Comments**: none. The previous Disqus integration was dropped in the Mana migration (Mana has no built-in comment system).
+- **Comments**: opt-in Disqus threads are available for `/post/` articles only. They remain disabled until `params.comments.disqus.shortname` is set; see `docs/disqus.md`.
 - **Deployment**: GitHub Actions workflow deploys to GitHub Pages on pushes to `published` branch
 
 ## Common Commands
