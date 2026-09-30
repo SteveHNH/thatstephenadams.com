@@ -1,37 +1,37 @@
 /*
- * Studio 74 — a warm Gruvbox-inspired skin for the existing Mana layout.
- * The site keeps its dark/light control: dark is the late-night TV studio,
- * light is the sun-faded sleeve of a favorite LP.
+ * Signal Stripe — a hand-drawn broadcast skin inspired by the site banner.
+ * Charcoal grounds the page while orange, gold, olive, and teal carry the
+ * horizontal-stripe energy through the interface.
  */
 :root {
-  --bg-deep: #282828;
-  --bg-primary: #282828;
-  --bg-secondary: #3c3836;
-  --bg-tertiary: #504945;
-  --glass-surface: #3c3836;
-  --glass-border: #665c54;
-  --glass-block: #3c3836;
-  --text-primary: #fbf1c7;
-  --text-secondary: #d5c4a1;
-  --text-muted: #a89984;
-  --accent-primary: #fe8019;
-  --accent-hover: #fabd2f;
-  --accent-mid-purple: #d3869b;
-  --accent-light-purple: #fabd2f;
-  --accent-secondary: #b8bb26;
-  --border-color: #665c54;
-  --tag-bg: #504945;
-  --tag-color: #fabd2f;
-  --accent-primary-rgba-03: rgba(254, 128, 25, 0.3);
-  --accent-primary-rgba-05: rgba(254, 128, 25, 0.5);
-  --accent-light-purple-rgba-01: rgba(250, 189, 47, 0.1);
-  --accent-light-purple-rgba-03: rgba(250, 189, 47, 0.3);
-  --accent-mid-purple-rgba-05: rgba(211, 134, 155, 0.05);
-  --accent-mid-purple-rgba-01: rgba(211, 134, 155, 0.1);
-  --accent-mid-purple-rgba-02: rgba(211, 134, 155, 0.2);
-  --shadow-sm: 3px 3px 0 rgba(29, 32, 33, 0.45);
-  --shadow-md: 6px 6px 0 rgba(29, 32, 33, 0.42);
-  --shadow-lg: 10px 10px 0 rgba(29, 32, 33, 0.42);
+  --bg-deep: #141d20;
+  --bg-primary: #141d20;
+  --bg-secondary: #1d2a2e;
+  --bg-tertiary: #293a3d;
+  --glass-surface: #1d2a2e;
+  --glass-border: #496065;
+  --glass-block: #1d2a2e;
+  --text-primary: #fff5df;
+  --text-secondary: #d9ddca;
+  --text-muted: #a8b2a2;
+  --accent-primary: #f15328;
+  --accent-hover: #ffb536;
+  --accent-mid-purple: #7d8e56;
+  --accent-light-purple: #fff0d0;
+  --accent-secondary: #12636a;
+  --border-color: #496065;
+  --tag-bg: #293a3d;
+  --tag-color: #fff0d0;
+  --accent-primary-rgba-03: rgba(241, 83, 40, 0.3);
+  --accent-primary-rgba-05: rgba(241, 83, 40, 0.5);
+  --accent-light-purple-rgba-01: rgba(255, 240, 208, 0.1);
+  --accent-light-purple-rgba-03: rgba(255, 240, 208, 0.3);
+  --accent-mid-purple-rgba-05: rgba(125, 142, 86, 0.05);
+  --accent-mid-purple-rgba-01: rgba(125, 142, 86, 0.1);
+  --accent-mid-purple-rgba-02: rgba(125, 142, 86, 0.2);
+  --shadow-sm: 3px 3px 0 rgba(6, 12, 14, 0.52);
+  --shadow-md: 6px 6px 0 rgba(6, 12, 14, 0.48);
+  --shadow-lg: 10px 10px 0 rgba(6, 12, 14, 0.46);
   --font-heading: "Cooper Black", "Bookman Old Style", Georgia, serif;
   --font-body: "Avenir Next", Avenir, "Century Gothic", Futura, sans-serif;
   --font-logo: "Cooper Black", "Bookman Old Style", Georgia, serif;
@@ -39,34 +39,34 @@
 }
 
 [data-theme="light"] {
-  --bg-deep: #f9f5d7;
-  --bg-primary: #f9f5d7;
-  --bg-secondary: #f2e5bc;
-  --bg-tertiary: #ebdbb2;
-  --glass-surface: #f2e5bc;
-  --glass-border: #bdae93;
-  --glass-block: #f2e5bc;
-  --text-primary: #3c3836;
-  --text-secondary: #665c54;
-  --text-muted: #928374;
-  --accent-primary: #af3a03;
-  --accent-hover: #d65d0e;
-  --accent-mid-purple: #9d0006;
-  --accent-light-purple: #af3a03;
-  --accent-secondary: #79740e;
-  --border-color: #bdae93;
-  --tag-bg: #ebdbb2;
-  --tag-color: #9d0006;
-  --accent-primary-rgba-03: rgba(175, 58, 3, 0.28);
-  --accent-primary-rgba-05: rgba(175, 58, 3, 0.45);
-  --accent-light-purple-rgba-01: rgba(175, 58, 3, 0.1);
-  --accent-light-purple-rgba-03: rgba(175, 58, 3, 0.25);
-  --accent-mid-purple-rgba-05: rgba(157, 0, 6, 0.05);
-  --accent-mid-purple-rgba-01: rgba(157, 0, 6, 0.1);
-  --accent-mid-purple-rgba-02: rgba(157, 0, 6, 0.2);
-  --shadow-sm: 3px 3px 0 rgba(60, 56, 54, 0.18);
-  --shadow-md: 6px 6px 0 rgba(60, 56, 54, 0.18);
-  --shadow-lg: 10px 10px 0 rgba(60, 56, 54, 0.18);
+  --bg-deep: #f7eedb;
+  --bg-primary: #f7eedb;
+  --bg-secondary: #fff8e9;
+  --bg-tertiary: #e7dfc8;
+  --glass-surface: #fff8e9;
+  --glass-border: #a4ad89;
+  --glass-block: #fff8e9;
+  --text-primary: #1b292c;
+  --text-secondary: #435457;
+  --text-muted: #687571;
+  --accent-primary: #c93e20;
+  --accent-hover: #e89c20;
+  --accent-mid-purple: #657747;
+  --accent-light-purple: #c93e20;
+  --accent-secondary: #0f6269;
+  --border-color: #a4ad89;
+  --tag-bg: #e7dfc8;
+  --tag-color: #1b565b;
+  --accent-primary-rgba-03: rgba(201, 62, 32, 0.28);
+  --accent-primary-rgba-05: rgba(201, 62, 32, 0.45);
+  --accent-light-purple-rgba-01: rgba(201, 62, 32, 0.1);
+  --accent-light-purple-rgba-03: rgba(201, 62, 32, 0.25);
+  --accent-mid-purple-rgba-05: rgba(101, 119, 71, 0.05);
+  --accent-mid-purple-rgba-01: rgba(101, 119, 71, 0.1);
+  --accent-mid-purple-rgba-02: rgba(101, 119, 71, 0.2);
+  --shadow-sm: 3px 3px 0 rgba(27, 41, 44, 0.16);
+  --shadow-md: 6px 6px 0 rgba(27, 41, 44, 0.16);
+  --shadow-lg: 10px 10px 0 rgba(27, 41, 44, 0.16);
 }
 
 body,
@@ -80,8 +80,21 @@ body::before { display: none; }
 .sticky-header,
 [data-theme="light"] .sticky-header {
   background-color: color-mix(in srgb, var(--bg-primary) 93%, transparent);
-  border-bottom: 3px solid var(--accent-primary);
+  border-bottom: 0;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.16);
+}
+
+.sticky-header::after {
+  content: "";
+  display: block;
+  height: 8px;
+  background: linear-gradient(
+    to right,
+    var(--accent-primary) 0 25%,
+    var(--accent-hover) 25% 50%,
+    var(--accent-mid-purple) 50% 75%,
+    var(--accent-secondary) 75% 100%
+  );
 }
 
 .header-logo .logo-link { letter-spacing: -0.04em; font-size: 1.45rem; color: var(--accent-light-purple); }
@@ -93,7 +106,7 @@ body::before { display: none; }
   letter-spacing: -0.055em;
   text-wrap: balance;
 }
-.hero-title-line1, .list-title-line1 { color: var(--accent-light-purple); }
+.hero-title-line1, .list-title-line1 { color: var(--accent-hover); }
 .hero-title-line2, .list-title-line2 {
   color: var(--text-primary);
   -webkit-text-stroke: 0;
@@ -113,8 +126,9 @@ body::before { display: none; }
   box-shadow: var(--shadow-sm);
 }
 .post-card { border-left: 7px solid var(--accent-secondary); }
-.post-card:nth-child(3n + 2) { border-left-color: var(--accent-primary); }
-.post-card:nth-child(3n) { border-left-color: var(--accent-mid-purple); }
+.post-card:nth-child(4n + 2) { border-left-color: var(--accent-primary); }
+.post-card:nth-child(4n + 3) { border-left-color: var(--accent-hover); }
+.post-card:nth-child(4n) { border-left-color: var(--accent-mid-purple); }
 .post-card:hover, .card-base:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-md); border-color: var(--accent-light-purple); }
 .post-image { border-radius: 0; border: 2px solid var(--bg-primary); }
 .post-title, .post-title-main, .posts-title, .archives-title, .archive-year-title,
@@ -126,7 +140,20 @@ body::before { display: none; }
 .post-content-main a, .archive-link, .about-content-full a { font-weight: 700; text-decoration-color: var(--accent-primary); text-decoration-thickness: 2px; }
 .post-content-main blockquote { border-left-color: var(--accent-secondary); background: var(--bg-secondary); }
 .post-toc { border-top: 6px solid var(--accent-primary); }
-.site-footer { border-width: 3px 0 0; border-color: var(--accent-primary); box-shadow: none; }
+.site-footer { border-width: 0; box-shadow: none; }
+.site-footer::before {
+  content: "";
+  display: block;
+  height: 8px;
+  margin: -1px -1px 1.5rem;
+  background: linear-gradient(
+    to right,
+    var(--accent-primary) 0 25%,
+    var(--accent-hover) 25% 50%,
+    var(--accent-mid-purple) 50% 75%,
+    var(--accent-secondary) 75% 100%
+  );
+}
 
 .search-input-wrapper, .search-results {
   background: var(--bg-secondary); border: 2px solid var(--accent-primary); border-radius: 0; box-shadow: var(--shadow-lg);
