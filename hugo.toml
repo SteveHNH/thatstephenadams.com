@@ -67,7 +67,7 @@ theme = "mana"
     github = "https://github.com/stevehnh"
     # bluesky and youtube are rendered by layouts/partials/social-links.html (repo override)
     bluesky = "https://bsky.app/profile/thatstephenadams.com"
-    youtube = "https://www.youtube.com/@2dorkstv"
+    youtube = "https://www.youtube.com/@thatstephenadams"
 
   [params.codeHighlight]
     darkTheme = "catppuccin-macchiato"
