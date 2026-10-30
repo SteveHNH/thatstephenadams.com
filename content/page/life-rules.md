@@ -14,24 +14,27 @@ Again, these are *MY* life rules. They may not apply to you and you may not agre
 
 1. Never put anything in your mouth as part of a competition or race.
 2. Never shop while drunk.
-3. Always tip 20% or more
-4. Measure twice, cut once
-5. Never wear pants with a stretchy waist band regularly
-6. Always dress respectably when you go out into the world. You never know who you'll run into
-7. Never treat with alcohol what you can treat with quiet time, honest conversation, or a cup of hot chocolate
+3. Always tip 20% or more if you can spare it.
+4. Measure twice, cut once. This is literal, but also a metaphor.
+5. Never wear pants with a stretchy waist band regularly.
+6. Always dress respectably when you go out into the world. You never know who you'll run into.
+7. Never treat with alcohol what you can treat with quiet time, honest conversation, or a cup of hot chocolate.
 8. Deal with your problems as they arise. It's never convenient, and poor choices tend to rot over time. They don't get better
 9. Read. Not all readers are good leaders, but all good leaders are readers.
 10. Be a little uncomfortable. If you're uncomfortable, you're growing as a person.
 11. If you have to poop 3 times or more at work/school, go home. No exceptions. 
-12. Never be jealous of people. They are just in more debt than you.
+12. Never be jealous of people's things. They are just in more debt than you. Debt and wealth are not the same.
 13. When it comes to medicine, always follow the rules on the label.
-14. When it comes to money. Save 10%, Give 10%, enjoy the rest.
+14. When it comes to money. Save 10%, Give 10%, enjoy the rest. Also find a good finance person.
 15. Never burn bridges. You might need them one day.
 16. Get lost once in a while. You might find something. 
-17. Your present self always looks impressive to the person you were before
-18. Never hire the roofing people that come around after a hail storm. Call up a reputable local roofer for help
+17. Remember your present self always looks impressive to the person you were even a day ago. 
+18. Never hire the roofing people that come around after a hail storm. Call up a reputable local roofer for help.
 19. No one can transfer the love of an object to another person. If the thing means nothing to you, get rid of it. 
-20. Never ask a person what they did with the gift you gave them. After you give it, it ceases to exist in your mind.
+20. Never ask a person what they did with the gift you gave them. After you give it, it's gone.
 21. Try something a minimum of three times before writing it off.
-22. Be kind. For everyone is fighting a hard battle.
+22. Be kind. Everyone is fighting a hard battle.
+23. Clean your mess before you make a new one.
+24. Do not go to the grocery store hungry.
+25. Give the world the best version of the authentic you. Do not present a crappy impression of someone you wish you were.
 
